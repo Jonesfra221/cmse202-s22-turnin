@@ -1,0 +1,297 @@
+---
+title: "Exam 1 -- STT/CMSE 180 Spring 2022"
+author: "Frank Jones"
+date: "2/16/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This exam is set up so that even if you get stuck on one part there are opportunities to get points on the other parts, so consider jumping ahead if you feel like you aren't making progress and then come back later if you have time.
+
+**Important note about using online resources:** This exam is "open internet". That means you can look up documentation, google how to accomplish certain tasks, access old ICAs, etc. However, the use of any person-to-person communication software is absolutely not acceptable. If you are seen accessing your email, using a chat program, or any sort of collaborative cloud storage or document software (e.g. Google Documents), you will be at risk for receiving a zero on the exam.
+
+Keep your eyes on your screen! This exam is designed to give you the opportunity to show the instructor what you can do and you should hold yourself accountable for maintaining a high level of academic integrity. If any of the instructors observe suspicious behavior, you will, again, risk receiving a zero.
+
+As always, you are encouraged to create new code chunks and test your code. Just please make sure it's clear which cell your answer is in. In general, you can use *any* method to solve the questions *unless otherwise specified.* The main thing is to show your work and make it clear what your answer is.
+
+
+
+# Overview
+
+**Topic**   |**Points** |
+------------|----------:|
+Data        | 25        |
+Vectors     | 25        |
+Data Frames | 25        |
+tidyverse   | 25        |
+
+Total: 100 points
+
+
+
+# Part 1: Data
+
+## Question 1a (5 points)
+
+What does the `floor` function do?
+
+```{r}
+
+```
+It returns the biggest interger that is smaller than the input
+****
+
+## Question 1b (5 points)
+
+What does the `decreasing` argument of the `sort` function do? Is this argument required or optional?
+
+```{r}
+
+```
+
+**it decides whether the output is in decreasing value or increasing. No**
+
+## Question 1c (5 points)
+
+What are the data types of the variables below?
+
+```{r}
+a <- 10i
+b <- 10L
+c <- "10"
+d <- as.logical(10)
+e <- 10 & 10
+```
+
+```{r}
+typeof(a)
+typeof(b)
+typeof(c)
+typeof(d)
+typeof(e)
+
+```
+
+**a = complex 
+b = integer
+c = character
+d = logical 
+e = logical**
+
+## Question 1d (5 points)
+
+Describe *two* advantages that working in an RMarkdown file has over working in a simple .R script file.
+
+**your answer here**
+
+## Question 1e (5 points)
+
+In your own words, what is algorithmic bias?
+
+**Repeated errors in a system**
+
+
+
+# Part 2: Vectors
+
+## Question 2a (5 points)
+
+Create a vector called `Oceania` that contains the 14 countries in Oceania. Use the given vectors `Oceania1` and `Oceania2` in your solution.
+
+```{r}
+Oceania1 <- c("Australia", "Fiji", "Kiribati", "Marshall Islands", "Micronesia", "Nauru", "New Zealand")
+Oceania2 <- c("Palau", "Papua New Guinea", "Samoa", "Solomon Islands", "Tonga", "Tuvalu", "Vanuatu")
+```
+
+```{r}
+# your answer here
+Oceania <- c(Oceania1, Oceania2)
+
+```
+
+## Question 2b (5 points)
+
+Extract the last element of the vector `weekly.temps`, shown below.
+
+```{r}
+weekly.temps <- c(18, 17, 25, 31, 47, 43, 24)
+```
+
+```{r}
+# your answer here
+weekly.temps[7]
+```
+
+## Question 2c (5 points)
+
+Extract the 13th, 14th, 15th, 16th, 17th, 18th, 19th, and 20th elements from the vector `count.by.three`, shown below.
+
+```{r}
+count.by.three <- seq(from=12, by=3, length.out=30)
+```
+
+```{r}
+# count.by.three[13:20]
+
+
+
+## Question 2d (5 points)
+
+#Compute the *mean* of the *squares* of *each element* of the `residuals` vector, shown below.
+
+#```{r}
+residuals <- c(-6.4, -5.9, -0.1, 3.0, -1.5, 3.9, -4.4, -5.5, 2.8, 3.8, 0.6, 0.8)
+```
+
+```{r}
+# 
+residuals*residuals
+
+```
+
+## Question 2e (5 points)
+
+Compute the sum of the first five elements of the `count.by.three` vector, used in question 2c and shown again below.
+
+```{r}
+count.by.three <- seq(from=12, by=3, length.out=30)
+```
+
+```{r}
+# your answer here
+sum(count.by.three[1:5])
+
+```
+
+
+
+# Part 3: Data Frames
+
+For this part, use the `CO2` data frame, shown below.
+
+```{r}
+CO2
+```
+
+## Question 3a (5 points)
+
+Compute a data frame that shows only the observations in rows 15 through 28.
+
+```{r}
+# your answer here
+CO2[15:28,]
+
+
+```
+
+## Question 3b (5 points)
+
+Add a column to `CO2` called `uptake.per.conc`, which shows the uptake divided by the concentration for each observation.
+
+```{r}
+# your answer here
+
+```
+
+## Question 3c (5 points)
+
+In one line of code, compute the unique values of each column of `CO2`. Do *not* use a loop to solve this question.
+
+```{r}
+# your answer here
+
+```
+
+## Question 3d (5 points)
+
+Create a data frame that has all the same data as `CO2`, but with the rows arranged in ascending order of the uptake.
+
+```{r}
+# your answer here
+
+```
+
+## Question 3e (5 points)
+
+Create a subset of `CO2`, with all the columns except for Type, and only the rows with Plant values of Qn1, Qn2, Qc1, Qc2, Mn3, or Mc3.
+
+```{r}
+# your answer here
+
+```
+
+
+
+# Part 4: tidyverse
+
+For this part, you will need the tidyverse library. Load the library by running the code chunk below.
+
+```{r}
+library(tidyverse)
+```
+
+For the first few questions in this part, use the `world_bank_pop` data frame, shown below. 
+
+```{r}
+world_bank_pop
+```
+
+## Question 4a (5 points)
+
+What is one feature of the `world_bank_pop` data frame that is considered messy?
+
+**The data itself is quite messy**
+
+## Question 4b (5 points)
+
+There are multiple functions that could be used to clean up the `world_bank_pop` data frame. Using just one `tidyr` function, make the `world_bank_pop` data frame cleaner. (You are not expected to make it completely tidy.)
+
+```{r}
+# your answer here
+
+```
+
+## Question 4c (5 points)
+
+In your own words, what are *two* advantages that the pipe operator provides when working with `dplyr` functions?
+
+**your answer here**
+
+## Question 4d (5 points)
+
+In this question, use the `swiss` data set, shown below.
+
+```{r}
+swiss
+```
+
+Using the pipe operator and a `dplyr` function, create a data frame with 6 randomly selected rows from `swiss`.
+
+```{r}
+# your answer here
+
+```
+
+## Question 4e (5 points)
+
+Using the pipe operator and a `dplyr` function, create a data frame that shows the mean Education and median Catholic of the `swiss` data frame, used in question 4d and shown again below.
+
+```{r}
+swiss
+```
+
+```{r}
+# your answer here
+
+```
+
+**You're done! Congrats on finishing your STT/CMSE 180 Exam!**
+
+
+
+# Essential details 
+
+Submit this exam by the end of the class period (Section 1: 12:10 AM, Section 2: 2:30 PM) by uploading your zipped RMD and HTML files through D2L. **Please put your name in the zip file's filename!** Make sure to double check your submission to note whether the everything is displayed properly when you open it on your own computer.
